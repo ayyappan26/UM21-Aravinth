@@ -6,8 +6,6 @@ public class EmployeeDTO {
 	private float Salary;
 	private int empId;
 
-	
-
 	public EmployeeDTO(Object object, Object object2, Object object3, Object object4) {
 		super();
 		First_Name = (String) object;
@@ -15,6 +13,7 @@ public class EmployeeDTO {
 		Salary = (float) object3;
 		this.empId = (int) object4;
 	}
+
 	public EmployeeDTO() {
 
 	}

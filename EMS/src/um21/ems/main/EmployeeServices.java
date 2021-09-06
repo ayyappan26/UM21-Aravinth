@@ -7,7 +7,7 @@ import um21.ems.EmployeeBO;
 public class EmployeeServices {
 
 	public static void main(String[] args) {
-		EmployeeBO emp=new EmployeeBO();
+		EmployeeBO emp = new EmployeeBO();
 		try {
 			emp.empSystem();
 		} catch (SQLException e) {

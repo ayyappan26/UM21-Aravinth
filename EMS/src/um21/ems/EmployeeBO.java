@@ -3,23 +3,23 @@ package um21.ems;
 import java.sql.SQLException;
 
 public class EmployeeBO {
-	EmployeeDTO empDTO=new EmployeeDTO();
-	EmployeeDAO empDAO=new EmployeeDAO();
-	Utility scan=new Utility();
-	public void empSystem() throws SQLException{
+	EmployeeDTO empDTO = new EmployeeDTO();
+	EmployeeDAO empDAO = new EmployeeDAO();
+	Utility scan = new Utility();
+
+	public void empSystem() throws SQLException {
 		int choice = 0;
 		EmployeeDAO dao = new EmployeeDAO();
-		do{
-			System.out.println("1. View Employee                     >");
-			System.out.println("\n2. Register Employee                 >");
-			System.out.println("\n3. Update Existing Employee Details  >");
-			System.out.println("\n4. Delete Existing Employee Details  >\n Note: Delete option ll permanently delete the details from the Employee table");
-			System.out.println("\n5. Exit ");
-			System.out.println("\nEnter your choice: ");
+		do {
+			System.out.println("1. View Employee : ");
+			System.out.println("2. Register Employee : ");
+			System.out.println("3. Update Existing Employee Details : ");
+			System.out.println("4. Exit ");
+			System.out.println("Enter your choice: ");
 			choice = scan.getScannerInstance().nextInt();
-		}while(choice ==0);
-		
-		switch(choice){
+		} while (choice == 0);
+
+		switch (choice) {
 		case 1:
 			empDAO.viewEmployees();
 			break;
@@ -31,42 +31,41 @@ public class EmployeeBO {
 			break;
 		case 4:
 			return;
-			
+
 		}
 	}
-	
 
-	public void viewEmployees(EmployeeDAO dao){
+	public void viewEmployees(EmployeeDAO dao) {
 		try {
 			dao.viewEmployees();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 	}
-	public void registerEmployee(EmployeeDAO dao){
+
+	public void registerEmployee(EmployeeDAO dao) {
 		EmployeeDTO empDto = getEmpDetails();
 		try {
 			dao.registerEmployee(empDto);
-			
+
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 	}
-	public void updateEmployee(EmployeeDAO dao)
-	{
+
+	public void updateEmployee(EmployeeDAO dao) {
 		EmployeeDTO empDto = getEmpDetails();
 		try {
 			dao.updateEmployee(empDto);
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 	}
-	
-	
-	public EmployeeDTO getEmpDetails(){
+
+	public EmployeeDTO getEmpDetails() {
 		EmployeeDTO empDto = new EmployeeDTO();
 		System.out.println("Enter Employee Id: ");
 		empDto.setEmpId(scan.getScannerInstance().nextInt());
@@ -77,6 +76,6 @@ public class EmployeeBO {
 		System.out.println("Enter Salary : ");
 		empDto.setSalary(scan.getScannerInstance().nextFloat());
 		return empDto;
-		
+
 	}
 }
