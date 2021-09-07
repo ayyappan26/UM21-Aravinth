@@ -1,10 +1,20 @@
-package um21.ems;
+package um21;
 
 public class EmployeeDTO {
 	private String First_Name;
 	private String Last_Name;
 	private float Salary;
 	private int empId;
+	
+	
+
+	/*public EmployeeDTO(int empId,String first_Name, String last_Name, float salary) {
+		super();
+		First_Name = first_Name;
+		Last_Name = last_Name;
+		Salary = salary;
+		this.empId = empId;
+	}*/
 
 	public String getFirst_Name() {
 		return First_Name;
