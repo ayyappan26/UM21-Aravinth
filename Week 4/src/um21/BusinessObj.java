@@ -7,18 +7,42 @@ import com.ultramain.dao.IDao;
 import com.ultramain.factory.AbstractFactory;
 
 public class BusinessObj {
-	public void viewAll() throws SQLException {
+	
+	/**
+	 *
+	 * To view all the data in the DataBase.
+	 */
+	public void viewAll(){
 		AbstractFactory factory=AbstractFactory.getFactory(1);
 		IDao dao=factory.getDao();
 		//Dao emp = new Dao();
-		Map<Integer, EmployeeDTO> view = dao.view();
-		System.out.println(view.values());
+		Map<Integer, EmployeeDTO> view;
+		try {
+			view = dao.view();
+			System.out.println(view.values());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
-	public void view() throws SQLException{
+	
+	/**
+	 * 
+	 * To view specific data in the DataBase using EmployeeID.
+	 */
+	public void view(){
 		AbstractFactory factory=AbstractFactory.getFactory(1);
 		IDao dao=factory.getDao();
 		//Dao emp = new Dao();
-		Map<Integer, EmployeeDTO> map = dao.view();
-		System.out.println(map.get(100));
+		Map<Integer, EmployeeDTO> map;
+		try {
+			map = dao.view();
+			System.out.println(map.get(100));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 }

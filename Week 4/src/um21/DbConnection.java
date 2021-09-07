@@ -5,6 +5,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DbConnection {
+		/**
+		 * @return
+		 * @throws SQLException
+		 * To Connect with OracleDB.
+		 */
 		public static Connection getDbConnection() throws SQLException { 
 					try {
 						Class.forName("oracle.jdbc.driver.OracleDriver");
